@@ -1,52 +1,54 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+// import ReactDOM from "react-dom";
 import "./App.css";
+import Buttonclick from "./Buttonclick";
+import Result from "./Result";
+// import Card from "./Card";
+import Cardlist from './Cardlist';
+import Form from './Form';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 0,
+      cards: [ ]
+    };
+    this.handleClick = this.handleClick.bind(this);
+    this.myRef = React.createRef();
+    console.log("myRef", this.myRef);
+  }
 
+  handleClick(incrementValue) {
+    this.setState(prevState => ({
+      counter: prevState.counter + incrementValue
+    }));
+  }
+  // state = { counter: 0 };
 
-
-    constructor() {
-        super();
-        console.log(this);
-    }
-    state = { counter: 0 };
-    
-  handleClick = (incrementValue) => {
-      this.setState(prevState => ({ counter: prevState.counter + incrementValue }));
-  };
+  //   handleClick = (incrementValue) => {
+  //       this.setState(prevState => ({ counter: prevState.counter + incrementValue }));
+  //   };
+    addNewCard = (cardInfo) => {
+        this.setState(prevState => ({ cards: prevState.cards.concat(cardInfo) }));
+  }
 
   render() {
-    return <div>
+    return (
+      <div>
         <Buttonclick incrementValue={1} onClickFunction={this.handleClick} />
         <Buttonclick incrementValue={2} onClickFunction={this.handleClick} />
         <Buttonclick incrementValue={5} onClickFunction={this.handleClick} />
         <Buttonclick incrementValue={10} onClickFunction={this.handleClick} />
-        <Result counter={this.state.counter} />
-      </div>;
+        <Result counting={this.state.counter} />
+        <Form onSubmit={this.addNewCard} />
+        <Cardlist list={this.state.cards} />        
+      </div>
+    );
   }
 }
 
-class Buttonclick extends React.Component {
-    handleIncrement = () => {
-        this.props.onClickFunction(this.props.incrementValue);
-    }
-       
 
-    render() {
-        return <button onClick={this.handleIncrement}>
-            Click {this.props.incrementValue}
-          </button>;
-    }
-}
-
-
-
-const Result = (props) => {
-    
-    return (
-        <div>{props.counter}</div>
-       );
-}
+// ReactDOM.render(<App />, document.querySelector('#root'));
 
 export default App;
