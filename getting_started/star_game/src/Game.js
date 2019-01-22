@@ -6,15 +6,16 @@ import Answer from "./Answer";
 import Number from "./Number";
 
 export default class Game extends React.Component {
+    state = {selectedNumber:[2, 4]}
   render() {
     return <div>
         <div className="GameContainer">
           <Stars />
           <Button />
-          <Answer />
+          <Answer selectedNumber={this.state.selectedNumber} />
         </div>
         <div>
-          <Number />
+            <Number selectedNumber={this.state.selectedNumber}/>
         </div>
       </div>;
   }

@@ -48,3 +48,20 @@
   /* background-color: red; */
   padding-left: 100px;
 }
+.Number {
+  /* background-color: red; */
+  padding-left: 30%;
+}
+.fa-star {
+  margin: 4px;
+}
+span {
+  margin: 4px;
+  background-color: darkgray;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.selected {
+  cursor: none;
+}
