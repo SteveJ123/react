@@ -6,16 +6,28 @@ import Answer from "./Answer";
 import Number from "./Number";
 
 export default class Game extends React.Component {
-    state = {selectedNumber:[2, 4]}
+    state = {
+        selectedNumber: [2, 4],
+        numberOfStars: Math.floor(Math.random() * 9) + 1}
+    numberClicked = (numClicked) => {
+        if (this.state.selectedNumber.indexOf(numClicked) >= 0) { return };
+        this.setState({
+            selectedNumber: this.state.selectedNumber.concat(numClicked)
+        })
+    }
+    unselectNumber = (numClicked) => {
+        console.log("unselectedNumber", numClicked);
+        this.setState(prevState => ({ selectedNumber: prevState.selectedNumber.filter(num=>num!==numClicked)}))
+            }
   render() {
     return <div>
         <div className="GameContainer">
-          <Stars />
+          <Stars numberOfStars={this.state.numberOfStars} />
           <Button />
-          <Answer selectedNumber={this.state.selectedNumber} />
+          <Answer unselectNumber={this.unselectNumber} selectedNumber={this.state.selectedNumber} />
         </div>
         <div>
-            <Number selectedNumber={this.state.selectedNumber}/>
+          <Number numberClicked={this.numberClicked} selectedNumber={this.state.selectedNumber} />
         </div>
       </div>;
   }
