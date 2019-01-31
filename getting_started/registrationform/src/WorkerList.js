@@ -4,14 +4,23 @@ import React from 'react';
 const WorkerList = (props) => {
 
     const list =   props.workerData.map(function (data) {
-        return <div>
-            <h4> {data.name}</h4>
-            <h4> {data.mobileno}</h4>
-            <h4> {data.salary}</h4>
-            <h4> {data.age}</h4>
-            <h4> {data.experience}</h4>
-            <img alt={data.photo} src={`./${data.profilephoto}.jpeg`} />
-          </div>;
+        return (
+          <div id="workerlist">
+            <div id="workerdetails">
+                    <h4>NAME: {data.name}</h4>
+                    <h4>MOBILE: {data.mobileno}</h4>
+                    <h4>SALARY: {data.salary}</h4>
+                    <h4>AGE: {data.age}</h4>
+                    <h4>EXPERIENCE: {data.experience}</h4>
+            </div>
+            <div>
+              <img id="workerimage"
+                alt={data.photo}
+                src={`./${data.profilephoto}.jpeg`}
+              />
+            </div>
+          </div>
+        );
             
     }  )
 

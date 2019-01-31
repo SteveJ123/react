@@ -16,3 +16,23 @@ img {
   width: 75px;
   height: 75px;
 }
+
+#workerlist {
+  display: flex;
+  flex-direction: row;
+  background-color: lightgray;
+  width: 230px;
+  margin-bottom: 4px;
+  border: 2px solid darkgray;
+  /* width: 25%; */
+  /* margin: auto; */
+}
+
+#workerimage {
+  display: inline-block;
+  margin-left: 57px;
+}
+
+h4 {
+  margin: 0px;
+}

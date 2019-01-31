@@ -47,7 +47,7 @@ class NewWorker extends React.Component {
     //   this.workerData.push(fieldObject);
       this.setState({ workerData: this.state.workerData.concat(fieldObject) })
       
-    console.log("worker data", this.workerData);
+      console.log("worker data", this.state.workerData);
   }
 
   validateForm() {
@@ -192,17 +192,17 @@ class NewWorker extends React.Component {
             />
             <div className="errorMsg">{this.state.errors.areapincode}</div>
             <label>
-              <select value={this.state.value} onChange={this.handleChange}>
-                <option name="select" value="select">
+              <select name="jobs" value={this.state.value} onChange={this.handleChange}>
+                <option  value="select">
                   --select--
                 </option>
-                <option name="maid" value="maid">
+                <option  value="maid">
                   MAID
                 </option>
-                <option name="cook" value="cook">
+                <option  value="cook">
                   COOK
                 </option>
-                <option name="nanny" value="nanny">
+                <option  value="nanny">
                   NANNY
                 </option>
               </select>
