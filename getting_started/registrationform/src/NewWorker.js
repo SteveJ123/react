@@ -1,12 +1,15 @@
 import React from "react";
+import WorkerList from "./WorkerList";
 
 class NewWorker extends React.Component {
   constructor() {
     super();
+    //   this.workerData = [];
     this.state = {
       fields: {},
         errors: {},
-    //   value: 'select'
+        workerData: []
+      //   value: 'select'
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -16,26 +19,35 @@ class NewWorker extends React.Component {
   }
 
   handleChange(e) {
-    let fields = this.state.fields;
-    fields[e.target.name] = e.target.value;
+    let stateFieldUpdate = this.state.fields;
+      stateFieldUpdate[e.target.name] = e.target.value;
     this.setState({
-      fields
+        fields: stateFieldUpdate
     });
-      console.log('event', e.target.value);
+    console.log("event", e.target.value);
   }
 
   submituserRegistrationForm(e) {
     e.preventDefault();
-    if (this.validateForm()) {
-      let fields = {};
-      fields["username"] = "";
-      fields["emailid"] = "";
-      fields["mobileno"] = "";
-      fields["password"] = "";
-      this.setState({ fields: fields });
-      alert("Form submitted");
-      }
-      console.log('user data', this.state.fields);
+    // if (this.validateForm()) {
+    //   let fields = {};
+    //   fields["username"] = "";
+    //   fields["emailid"] = "";
+    //   fields["mobileno"] = "";
+    //   fields["password"] = "";
+    //     this.setState({ fields: fields });
+    //             // console.log("workerDataupdate", workerDataupdate);
+    //     // this.setState({ workerData: workerDataupdate });
+    //     console.log('inside validation');
+    //   alert("Form submitted");
+    //   }
+      
+      let fieldObject = { ...this.state.fields };      
+      console.log("user data", this.state.fields);
+    //   this.workerData.push(fieldObject);
+      this.setState({ workerData: this.state.workerData.concat(fieldObject) })
+      
+    console.log("worker data", this.workerData);
   }
 
   validateForm() {
@@ -106,51 +118,102 @@ class NewWorker extends React.Component {
   }
 
   render() {
-    return <div id="main-registration-container">
+    return (
+      <div id="main-registration-container">
         <div id="register">
           <h3>Registration page</h3>
-          <form method="post" name="userRegistrationForm" onSubmit={this.submituserRegistrationForm}>
+
+          <form
+            method="post"
+            name="userRegistrationForm"
+            onSubmit={this.submituserRegistrationForm}
+          >
             <label>NAME</label>
-            <input type="text" name="name" //   value={this.state.fields.username}
-              onChange={this.handleChange} />
+            <input
+              type="text"
+              name="name"
+              onChange={
+                this.handleChange //   value={this.state.fields.username}
+              }
+            />
             <div className="errorMsg">{this.state.errors.name}</div>
             <label>MOBILE</label>
-            <input type="text" name="mobileno" //   value={this.state.fields.mobileno}
-              onChange={this.handleChange} />
+            <input
+              type="text"
+              name="mobileno"
+              onChange={
+                this.handleChange //   value={this.state.fields.mobileno}
+              }
+            />
             <div className="errorMsg">{this.state.errors.mobileno}</div>
             <label>SALARY</label>
-            <input type="number" name="salary" //   value={this.state.fields.salary}
-              onChange={this.handleChange} />
+            <input
+              type="number"
+              name="salary"
+              onChange={
+                this.handleChange //   value={this.state.fields.salary}
+              }
+            />
             <div className="errorMsg">{this.state.errors.salary}</div>
             <label>AGE</label>
-            <input type="number" name="age" //   value={this.state.fields.age}
-              onChange={this.handleChange} />
+            <input
+              type="number"
+              name="age"
+              onChange={
+                this.handleChange //   value={this.state.fields.age}
+              }
+            />
             <div className="errorMsg">{this.state.errors.age}</div>
             <label>EXPERIENCE</label>
-            <input type="number" name="experience" //   value={this.state.fields.experience}
-              onChange={this.handleChange} />
+            <input
+              type="number"
+              name="experience"
+              onChange={
+                this.handleChange //   value={this.state.fields.experience}
+              }
+            />
             <div className="errorMsg">{this.state.errors.experience}</div>
             <label>PROFILE PHOTO</label>
-            <input type="" name="profilephoto" //   value={this.state.fields.profilephoto}
-              onChange={this.handleChange} />
+            <input
+              type=""
+              name="profilephoto"
+              onChange={
+                this.handleChange //   value={this.state.fields.profilephoto}
+              }
+            />
             <div className="errorMsg">{this.state.errors.profilephoto}</div>
             <label>AREA PINCODE</label>
-            <input type="number" name="areapincode" //   value={this.state.fields.areapin}
-              onChange={this.handleChange} />
+            <input
+              type="number"
+              name="areapincode"
+              onChange={
+                this.handleChange //   value={this.state.fields.areapin}
+              }
+            />
             <div className="errorMsg">{this.state.errors.areapincode}</div>
             <label>
               <select value={this.state.value} onChange={this.handleChange}>
-                <option name="select" value="select">--select--</option>
-                <option name="maid" value="maid">MAID</option>
-                <option name="cook" value="cook">COOK</option>
-                <option name="nanny" value="nanny">NANNY</option>
+                <option name="select" value="select">
+                  --select--
+                </option>
+                <option name="maid" value="maid">
+                  MAID
+                </option>
+                <option name="cook" value="cook">
+                  COOK
+                </option>
+                <option name="nanny" value="nanny">
+                  NANNY
+                </option>
               </select>
             </label>
 
             <input type="submit" className="button" value="Register" />
           </form>
         </div>
-      </div>;
+        <WorkerList workerData={this.state.workerData} />
+      </div>
+    );
   }
 }
 
