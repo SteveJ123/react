@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin: auto;
+}
+
+#email,
+#mobile,
+#password,
+#register {
+  margin-top: 10px;
+}
