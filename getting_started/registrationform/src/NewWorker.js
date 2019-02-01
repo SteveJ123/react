@@ -1,5 +1,7 @@
 import React from "react";
 import WorkerList from "./WorkerList";
+import WorkerSearch from "./WorkerSearch";
+import WorkerDetails from "./WorkerDetails.json"
 
 class NewWorker extends React.Component {
   constructor() {
@@ -8,14 +10,16 @@ class NewWorker extends React.Component {
     this.state = {
       fields: {},
         errors: {},
-        workerData: []
+        workerData: [],
+        workerDetails:null 
       //   value: 'select'
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.submituserRegistrationForm = this.submituserRegistrationForm.bind(
       this
-    );
+      );
+    //   this.filterWorkerDetails = this.filterWorkerDetails.bind(this);
   }
 
   handleChange(e) {
@@ -117,7 +121,10 @@ class NewWorker extends React.Component {
     return formIsValid;
   }
 
-  render() {
+    
+
+    render() {
+        { console.log("WorkerSearch", WorkerDetails);}
     return (
       <div id="main-registration-container">
         <div id="register">
@@ -207,12 +214,15 @@ class NewWorker extends React.Component {
                 </option>
               </select>
             </label>
+            <button>test</button>
 
             <input type="submit" className="button" value="Register" />
           </form>
         </div>
-        <WorkerList workerData={this.state.workerData} />
-      </div>
+            <WorkerList workerData={this.state.workerData} />
+            <WorkerSearch WorkerDetails={WorkerDetails}/>
+        </div>
+        
     );
   }
 }
