@@ -1,7 +1,7 @@
 import React from "react";
 import WorkerList from "./WorkerList";
 import WorkerSearch from "./WorkerSearch";
-import WorkerDetails from "./WorkerDetails.json"
+import WorkerDetails from "../WorkerDetails.json";
 
 class NewWorker extends React.Component {
   constructor() {

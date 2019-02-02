@@ -36,3 +36,9 @@ img {
 h4 {
   margin: 0px;
 }
+
+a {
+  margin-left: 10px;
+  background-color: lightgray;
+  color: black;
+}

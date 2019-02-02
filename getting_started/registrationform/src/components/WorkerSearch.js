@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WorkerDetails from "./WorkerDetails";
+import WorkerDetails from "../WorkerDetails.json";
 import WorkerList from "./WorkerList";
 
 class WorkerSearch extends Component{
