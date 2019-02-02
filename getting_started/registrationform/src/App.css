@@ -42,3 +42,8 @@ a {
   background-color: lightgray;
   color: black;
 }
+
+#homeheader {
+  margin-top: 80px;
+  margin-left: 240px;
+}
