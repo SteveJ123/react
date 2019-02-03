@@ -47,3 +47,41 @@ a {
   margin-top: 80px;
   margin-left: 240px;
 }
+#main-registration-container {
+  margin-left: 250px;
+}
+
+#nwregheader {
+}
+
+#regname {
+  margin-left: 70px;
+}
+
+#regmobileno {
+  margin-left: 60px;
+}
+
+#regsalary {
+  margin-left: 60px;
+}
+
+#regage {
+  margin-left: 85px;
+}
+
+#regexperience {
+  margin-left: 32px;
+}
+
+#regprofilephoto {
+  margin-left: 5px;
+}
+
+#regareapincode {
+  margin-left: 11px;
+}
+
+#regsubmit {
+  margin-left: 68px;
+}

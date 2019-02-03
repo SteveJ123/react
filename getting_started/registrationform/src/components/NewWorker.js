@@ -128,7 +128,7 @@ class NewWorker extends React.Component {
     return (
       <div id="main-registration-container">
         <div id="register">
-          <h3>Registration page</h3>
+          <h3 id="nwregheader">{"Registration page".toUpperCase()}</h3>
 
           <form
             method="post"
@@ -138,6 +138,7 @@ class NewWorker extends React.Component {
             <label>NAME</label>
             <input
               type="text"
+              id="regname"
               name="name"
               onChange={
                 this.handleChange //   value={this.state.fields.username}
@@ -147,6 +148,7 @@ class NewWorker extends React.Component {
             <label>MOBILE</label>
             <input
               type="text"
+              id="regmobileno"
               name="mobileno"
               onChange={
                 this.handleChange //   value={this.state.fields.mobileno}
@@ -156,6 +158,7 @@ class NewWorker extends React.Component {
             <label>SALARY</label>
             <input
               type="number"
+              id="regsalary"
               name="salary"
               onChange={
                 this.handleChange //   value={this.state.fields.salary}
@@ -165,6 +168,7 @@ class NewWorker extends React.Component {
             <label>AGE</label>
             <input
               type="number"
+              id="regage"
               name="age"
               onChange={
                 this.handleChange //   value={this.state.fields.age}
@@ -174,6 +178,7 @@ class NewWorker extends React.Component {
             <label>EXPERIENCE</label>
             <input
               type="number"
+              id="regexperience"
               name="experience"
               onChange={
                 this.handleChange //   value={this.state.fields.experience}
@@ -183,6 +188,7 @@ class NewWorker extends React.Component {
             <label>PROFILE PHOTO</label>
             <input
               type=""
+              id="regprofilephoto"
               name="profilephoto"
               onChange={
                 this.handleChange //   value={this.state.fields.profilephoto}
@@ -192,6 +198,7 @@ class NewWorker extends React.Component {
             <label>AREA PINCODE</label>
             <input
               type="number"
+              id="regareapincode"
               name="areapincode"
               onChange={
                 this.handleChange //   value={this.state.fields.areapin}
@@ -199,30 +206,24 @@ class NewWorker extends React.Component {
             />
             <div className="errorMsg">{this.state.errors.areapincode}</div>
             <label>
-              <select name="jobs" value={this.state.value} onChange={this.handleChange}>
-                <option  value="select">
-                  --select--
-                </option>
-                <option  value="maid">
-                  MAID
-                </option>
-                <option  value="cook">
-                  COOK
-                </option>
-                <option  value="nanny">
-                  NANNY
-                </option>
+              <select
+                id="regjobs"
+                name="jobs"
+                value={this.state.value}
+                onChange={this.handleChange}
+              >
+                <option value="select">--select--</option>
+                <option value="maid">MAID</option>
+                <option value="cook">COOK</option>
+                <option value="nanny">NANNY</option>
               </select>
             </label>
-            <button>test</button>
-
-            <input type="submit" className="button" value="Register" />
+                <input type="submit" id="regsubmit" className="button" value="Register" />
           </form>
         </div>
-            <WorkerList workerData={this.state.workerData} />
-            <WorkerSearch WorkerDetails={WorkerDetails}/>
-        </div>
+        <WorkerList workerData={this.state.workerData} />
         
+      </div>
     );
   }
 }

@@ -41,9 +41,9 @@ class WorkerSearch extends Component{
     
     render() {
         return (
-          <div>
-            {console.log("entered text", this.state.enteredText)}
-
+            <div id="wsdiv">
+                <h1>{"search worker with pincode".toUpperCase()}</h1>
+            
             <input
               type="number"
               id="workersearchinput"
