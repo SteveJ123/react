@@ -14,6 +14,8 @@ class FillForm extends React.Component {
   }
 
   handleChange(event) {
+    console.log("console", event);
+    console.dir("dir event", event);
     if (event.target.value === "") {
       alert(`input ${event.target.name} is empty`);
       return false;
@@ -57,6 +59,8 @@ class FillForm extends React.Component {
   }
 
   handleSubmit(event) {
+      console.log("submit", event.nativeEvent);
+      console.dir(event);
     event.preventDefault();
     // console.log("event", event.target);
     var username = event.target.username.value;
