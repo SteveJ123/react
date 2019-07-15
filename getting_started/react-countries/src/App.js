@@ -25,6 +25,10 @@ const [filter, setfilter] = useState('');
   
   const getData = () =>{
     console.log("search", search);
+    if(search === ''){
+      alert("enter value");
+      return;
+    }
     let result = countries.filter((element)=>{
       return element.name.toLowerCase().includes(search.toLowerCase());      
     });
