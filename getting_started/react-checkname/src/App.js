@@ -26,10 +26,29 @@ const App = () => {
     console.log("entered");
     let addname = persons.concat({ name: newName });
     setPersons(addname);
-  }
-      
-    
-  };
+  }  
+};
+
+// const handleSubmit = event => {
+//   event.preventDefault();
+
+//   const existing = persons.find(
+//     x => x.name.toLowerCase().trim() === newName.toLowerCase().trim()
+//   );
+
+//   console.log("find", existing);
+
+//   if (!existing) {      
+//     let test = { name: newName };
+//     setPersons(persons.concat(test));
+//   } else {
+//     alert(`${newName} is already added to phonebook`);
+//   }    
+
+//   setNewName(" ");
+// };
+
+
   const personArray = persons.map((i, index) => <li key={index}>{i.name}</li>);
 
   return (
