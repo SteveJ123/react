@@ -42,10 +42,11 @@ const [filter, setfilter] = useState('');
       { countries && filter === '' ?
          <ol>{countries.map(element => <li>{element.name}</li>)}</ol>
          :null}
-         { filter ?
+         { filter  ?
+         filter && filter.length<10 ?
          <ol>{filter.map(element => <li>{element.name}</li>)}</ol>
         // <span>test</span>
-         :null}
+         :<span>greater than 10</span>:null }
     </div>
   );
 };
