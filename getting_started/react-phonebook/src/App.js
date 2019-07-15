@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import Search from './components/Search/Search';
 import './App.css';
 
 function App() {
@@ -52,13 +53,7 @@ promise.then(response => {
     }
   return (
     <div className="App">
-      <div className="filter">
-        <div >
-      <h4>search person</h4>
-      <input onChange={searchData}></input>
-      </div>  
-      
-      </div>
+     <Search searchData={searchData} />
 
       <div className="details">
         <div >
