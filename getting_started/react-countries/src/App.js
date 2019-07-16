@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "./App.css";
+import Countries from './components/Countries/Countries';
 
 const App = () => {
 
@@ -40,36 +41,10 @@ const [filter, setfilter] = useState('');
   return (
     <div className="App">
       <div>
-        <input type="text" onChange={e=> setsearch(e.target.value)} />
+        find countries:<input type="text" onChange={e=> setsearch(e.target.value)} />
         <button onClick={getData}>click</button>
       </div>
-      { countries && filter === '' ?
-         <ol>{countries.map(element => <li>{element.name}</li>)}</ol>
-         :null}
-         { filter  ?
-         filter && filter.length<10 ? filter && filter.length === 1 ?
-          <div>{filter.map(element =>{
-            return (
-              <div>
-              <div>
-              country: {element.name}
-              <h1>languages</h1>
-              <ul>{
-                element.languages.map(x =>  <li>{x.name}</li> )
-              }</ul>
-              </div>
-              <img src={element.flag}/>
-              </div>
-            )
-          }
-          
-          )
-         } 
-         
-         </div>:
-         <ol>{filter.map(element => <li>{element.name}</li>)}</ol>
-        // <span>test</span>
-         :<span>greater than 10</span>:null }
+      <Countries countries={countries} filter={filter} />
     </div>
   );
 };
