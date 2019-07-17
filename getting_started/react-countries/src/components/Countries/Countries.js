@@ -1,28 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Countries.css';
 import CountryFlag from '../CountryFlag/CountryFlag';
+import CountriesDetails from './CountriesDetails/CountriesDetails';
 
 
-const Countries = ({countries, filter}) =>{
-
+const Countries = ({countries, filter, onClick, result, selectedCountry }) =>{
+  const [test, settest] = useState('');
+  
     return(
-        <div>
+        <div>         
+
             { countries && filter === '' ?
          <ol>{countries.map(element => <li>{element.name}</li>)}</ol>
          :null}
-         { filter  ?
+         { filter ?
          filter && filter.length<10 ? filter && filter.length === 1 ?
           <div>{filter.map(element =>{
             return (
               <div>
-              <div>
-              country: {element.name}
-              <p><strong>capital:</strong>{element.capital}</p>
-              <h1>languages</h1>
-              <ul>{
-                element.languages.map(x =>  <li>{x.name}</li> )
-              }</ul>
-              </div>
+              <CountriesDetails element={element} />              
+              
               <CountryFlag element={element} />
               </div>
             )
@@ -32,8 +29,15 @@ const Countries = ({countries, filter}) =>{
          } 
          
          </div>:
-         <ol>{filter.map(element => <li>{element.name}</li>)}</ol>
-        // <span>test</span>
+         <div>
+           {/* result ? <p>button clicked</p>: */}
+         <ol>{result ? <div>
+           <CountriesDetails element={selectedCountry}  />
+          <CountryFlag element={selectedCountry} />
+          </div>
+         : filter.map((element, i) => <li>{element.name}
+          <button className="displayoff" key={i} id={i}  onClick={onClick}>click here</button></li>)}</ol>
+         </div>        
          :<span>greater than 10</span>:null }
         </div>
     )

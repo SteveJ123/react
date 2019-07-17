@@ -1,0 +1,9 @@
+.displayoff{
+    display: block;
+    /* visibility: hidden; */
+}
+
+.displayon{
+    /* display: block; */
+    background-color: blue;
+}
