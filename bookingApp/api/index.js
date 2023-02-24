@@ -2,6 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoute from "./routers/auth.js"
+import usersRoute from "./routers/users.js"
+import hotelsRoute from "./routers/hotels.js"
+import roomsRoute from "./routers/rooms.js"
 
 mongoose.set('strictQuery', false);
 const app = express();
@@ -24,7 +27,12 @@ mongoose.connection.on("disconnected", ()=>{
     console.log("disconnected")
 })
 
-app.use("/auth", authRoute)
+app.use(express.json())
+
+app.use("/api/auth", authRoute)
+app.use("/api/users", usersRoute)
+app.use("/api/hotels", hotelsRoute)
+app.use("/api/rooms", roomsRoute)
 
 app.listen(8800, ()=>{
     console.log(connect())
