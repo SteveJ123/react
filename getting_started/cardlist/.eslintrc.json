@@ -1,0 +1,16 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "rules": {
+    "linebreak-style": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ]
+  },
+  "plugins": ["react", "jsx-a11y", "import"]
+}
