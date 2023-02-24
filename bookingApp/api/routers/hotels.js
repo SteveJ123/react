@@ -49,12 +49,13 @@ router.get("/:id", async (req, res)=>{
     
 })
 // getall
-router.get("/", async(req, res)=>{
+router.get("/", async(req, res, next)=>{
     try {
-        const hotel = await Hotel.find();
+        const hotel = await Hotel.findById("adddddd");
         res.status(200).json(hotel)
-    } catch (error) {
-        res.status(500).json(error)
+    } catch (err) {
+        // res.status(500).json(error)
+        next(err)
     }
 })
 
