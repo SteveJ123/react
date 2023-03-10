@@ -1,0 +1,15 @@
+.div {
+    /*
+    position: absolute;
+    z-index: 1;
+    top:37px;
+    left:11.4%;
+    */
+    display: table; /* add */
+    margin:auto;  /* add */
+    border-radius: 4px;
+    border-color:green;
+    border-style: double;
+    min-width:252px;
+    height:auto;
+  }
