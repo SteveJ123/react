@@ -1,0 +1,57 @@
+.navbar-nav > .nav-item > .nav-link {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.navbar-nav > .nav-item:hover > .nav-link {
+  background-color: #eee;
+}
+
+.navbar-nav > .nav-item:hover > .nav-link:not(.disabled) {
+  color: #555;
+}
+
+.navbar-nav > .nav-item:hover > .nav-link + .dropdown-menu {
+  display: block;
+}
+
+.quick-access, .check, .admission, .job{
+  height: 40px;
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 4px;
+  text-align: center;
+  color: white;
+}
+.quick-access{
+  background-color: rgb(51, 51, 248);
+}
+
+.check{
+  background-color: rgb(135, 209, 234);
+}
+
+.admission{
+  background-color: rgb(245, 165, 17);
+}
+
+.job{
+  background-color: rgb(130, 246, 130);
+}
+
+.teacher{
+  color: rgb(246, 173, 37);
+}
+.campus{
+  color: rgb(101, 248, 101);
+}
+
+.delicious{
+color: rgb(233, 106, 106);
+}
+
+.option{
+  background-color: blue!important;
+  margin-bottom: 4px;
+  color: white!important;
+}
