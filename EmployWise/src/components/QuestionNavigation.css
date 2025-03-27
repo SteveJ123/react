@@ -1,0 +1,57 @@
+/* Wrapper for navigation */
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  
+  /* Arrow styling */
+  .arrow {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 5px;
+  }
+  
+  .arrow.hidden {
+    visibility: hidden;
+  }
+  
+  /* Scrollable Question Container */
+  .question-container {
+    display: flex;
+    overflow-x: hidden; /* Hide scrollbar */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    gap: 10px;
+    width: 200px; /* Visible width */
+    border: 1px solid #ccc;
+    padding: 5px 0;
+  }
+  
+  /* Question numbers */
+  .question-number {
+    min-width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .question-number.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
